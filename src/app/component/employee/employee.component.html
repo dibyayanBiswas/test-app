@@ -1,0 +1,51 @@
+<h1>Employee Form</h1>
+
+<div class="container">
+    <div class="row col-6">
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mt-3">
+              <label for="name">Employee Name</label>
+              <input type="text" pattern="" class="form-control" id="name" formControlName="name" 
+                [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Employee Name is required</div>
+                </div>
+            </div>
+        
+                <div class="form-group mt-3">
+                    <label for="age">Employee Age</label>
+                    <input type="number" class="form-control" id="age" formControlName="age" 
+                        [ngClass]="{ 'is-invalid': submitted && f.age.errors }" maxlength="3">
+                    <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                        <div *ngIf="f.age.errors.required">Employee Age is required</div>
+                    </div>
+                </div>
+        
+              <div class="form-group mt-3">
+                <label for="org">Employee Organization</label>
+                <input type="text" pattern="" class="form-control" id="org" formControlName="org" 
+                    [ngClass]="{ 'is-invalid': submitted && f.org.errors }">
+                <div *ngIf="submitted && f.org.errors" class="invalid-feedback">
+                    <div *ngIf="f.org.errors.required">Employee Organization is required</div>
+                </div>
+              </div>
+              
+              <div class="form-group mt-3">
+                <label for="exp">Employee Experience</label>
+                <input type="number" class="form-control" id="exp" formControlName="exp" 
+                    [ngClass]="{ 'is-invalid': submitted && f.exp.errors }" maxlength="2">
+                <div *ngIf="submitted && f.exp.errors" class="invalid-feedback">
+                    <div *ngIf="f.exp.errors.required">Employee Experience is required</div>
+                </div>
+            </div>
+        
+            
+            <button type="reset" class="btn btn-primary mt-3" (click)="onReset()">Reset</button>
+            <button type="submit" class="btn btn-primary mt-3 right">Submit</button>
+          </form>
+    </div>
+
+    <div class="row col-6 mt-3">
+        <button type="button" [routerLink]="['details']" class="btn btn-primary">Go to Employee Details</button>
+    </div>
+</div>

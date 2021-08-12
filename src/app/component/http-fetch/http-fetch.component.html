@@ -1,0 +1,23 @@
+<div class="row text-center col-3">
+    <button type="button" class="btn btn-primary" (click)="fetch()">Fetch from gorest</button>
+</div>
+
+
+<div class="container mt-3" *ngIf="users">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" *ngFor="let userKey of users[0] | key">{{userKey | titlecase}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
